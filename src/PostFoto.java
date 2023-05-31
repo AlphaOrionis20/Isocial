@@ -5,7 +5,7 @@ public class PostFoto implements Postavel
 {
     private int qtd_de_fotos;
     private LocalDateTime data_postagem;
-    private ArrayList<Foto> fotos = new ArrayList();
+    private ArrayList<Foto> Fotos = new ArrayList();
     private String localizacao;
 
     public PostFoto(){}

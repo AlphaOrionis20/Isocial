@@ -7,6 +7,7 @@ public class PostVideo implements Postavel {
     private LocalDateTime data_postagem;
     private ArrayList<Video> videos = new ArrayList();
 
+
     public PostVideo(){
 
     }
