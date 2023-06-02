@@ -55,20 +55,20 @@ public class PostFoto implements Postavel
         LocalDateTime data = LocalDateTime.now();
         System.out.print("Deseja fixar comentario (sim/nao)? ");
         String resposta = sc.nextLine();
-        boolean a;
+        boolean fixado;
+        if (resposta == "sim"){
+            fixado = true;
+        }
+        else {
+            fixado = false;
+        }
         System.out.println("Insira comentário: ");
         String texto = sc.nextLine();
         int tamanho = texto.length();
-        if (resposta == "sim"){
-            a = true;
 
-            return true;
-        }
-        else {
-            a = false;
-            
-            return false;
-        }
-        Comentario x = new Comentario(data, a, tamanho, texto);
+        Comentario comentario = new Comentario(data, fixado, tamanho, texto);
+        Comentarios.add(comentario);
+
+        return true;
     }
 }
