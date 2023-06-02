@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PostFoto implements Postavel
 {
@@ -10,6 +11,7 @@ public class PostFoto implements Postavel
 
     private ArrayList<Comentario> Comentarios = new ArrayList();
 
+    Scanner sc = new Scanner(System.in);
     public PostFoto(){
         qtd_de_fotos = 0;
         data_postagem = null;
@@ -51,6 +53,22 @@ public class PostFoto implements Postavel
     @Override
     public boolean comenta() {
         LocalDateTime data = LocalDateTime.now();
-        Comentario x = new Comentario(data, )
+        System.out.print("Deseja fixar comentario (sim/nao)? ");
+        String resposta = sc.nextLine();
+        boolean a;
+        System.out.println("Insira comentário: ");
+        String texto = sc.nextLine();
+        int tamanho = texto.length();
+        if (resposta == "sim"){
+            a = true;
+
+            return true;
+        }
+        else {
+            a = false;
+            
+            return false;
+        }
+        Comentario x = new Comentario(data, a, tamanho, texto);
     }
 }
