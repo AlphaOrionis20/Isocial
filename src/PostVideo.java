@@ -5,26 +5,34 @@ public class PostVideo implements Postavel {
 
     private Video video;
     private LocalDateTime data_postagem;
-    private ArrayList<Video> videos = new ArrayList();
 
 
     public PostVideo(){
 
     }
 
-    public boolean adicionaVideo(){
-        if(videos==null){
-           return false;
+    public boolean adicionaVideo(Video _vid){
+        if(_vid.ID <= video.ID){
+            return true;
         }
-        return true;
+        else{
+            return false;
+        }
     }
     @Override
     public boolean posta() {
-        return false;
+        if (video != null) {
+            data_postagem = LocalDateTime.now();
+            return true;
+        }
+        else {
+            System.out.println("Erro: Nenhum vídeo está associado à postagem.");
+            return false;
+        }
     }
 
     @Override
     public boolean comenta() {
-        return false;
+
     }
 }

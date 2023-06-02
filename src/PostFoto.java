@@ -8,18 +8,49 @@ public class PostFoto implements Postavel
     private ArrayList<Foto> Fotos = new ArrayList();
     private String localizacao;
 
-    public PostFoto(){}
-    public boolean adicionaFoto()
+    private ArrayList<Comentario> Comentarios = new ArrayList();
+
+    public PostFoto(){
+        qtd_de_fotos = 0;
+        data_postagem = null;
+    }
+    public boolean adicionaFoto(Foto foto)
     {
-        return true;
+        if (foto != null){
+            Fotos.add(foto);
+            qtd_de_fotos++;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean removeFoto(Foto foto){
+        if(Fotos.contains(foto)){
+            Fotos.remove(foto);
+            qtd_de_fotos--;
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     @Override
     public boolean posta() {
-        return false;
+        if (qtd_de_fotos>=1 && qtd_de_fotos<=10) {
+            data_postagem = LocalDateTime.now();
+            return true;
+        }
+        else {
+            System.out.println("Erro: É aceito apenas 1 foto e no máximo 10. Verifique seus dados.");
+            return false;
+        }
     }
 
     @Override
     public boolean comenta() {
-        return false;
+        LocalDateTime data = LocalDateTime.now();
+        Comentario x = new Comentario(data, )
     }
 }
