@@ -1,11 +1,16 @@
 public class Video extends Recurso{
     private int frame_rate;
     private int duracao;
+
+    public Video(){
+
+    }
     public Video(String url_recurso,int frame_rate,int duracao) {
         super(url_recurso);
         this.duracao = duracao;
         this.frame_rate = frame_rate;
     }
+
 
     @Override
     public boolean validaUrlRecurso(String url) {

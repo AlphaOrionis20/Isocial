@@ -3,10 +3,17 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Video video1 = new Video("eunaoseitantofazalgumacoisa.jpg.mp4.mov", 30, 120);
-        System.out.println(video1.validaUrlRecurso(video1.getUrl_recurso()));
+        Video video = new Video("YoTube.mp4",60,5);
+        System.out.println(video.validaUrlRecurso(video.url_recurso));
+        Video video1 = new Video("alo",60,5);
+        System.out.println(video1.validaUrlRecurso(video1.url_recurso));
+        Video video2 = new Video();
+        System.out.println(video2.validaUrlRecurso(video2.url_recurso));
+        Foto foto = new Foto();
+        PostFoto postagem = new PostFoto();
+        postagem.adicionaFoto();
+        postagem.adicionaFoto();
+        postagem.adicionaFoto();
 
-        Foto foto1 = new Foto("eunaoseitantofazalgumacoisa.jpg.png", "seila");
-        System.out.println(foto1.validaUrlRecurso(foto1.getUrl_recurso()));
     }
 }

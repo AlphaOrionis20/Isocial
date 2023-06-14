@@ -53,21 +53,25 @@ public class PostFoto implements Postavel
     @Override
     public boolean comenta() {
         LocalDateTime data = LocalDateTime.now();
-        System.out.print("Deseja fixar comentario (sim/nao)? ");
+        System.out.println("Insira comentário: ");
+        String texto = sc.nextLine();
+        int tamanho = texto.length();
+        System.out.print("Deseja fixar comentário (sim/nao)? ");
         String resposta = sc.nextLine();
         boolean fixado;
         if (resposta == "sim"){
             fixado = true;
+            Comentario comentario = new Comentario(data, fixado, tamanho, texto);
+            Comentarios.add(0,comentario);
         }
-        else {
+        else if (resposta == "nao"){
             fixado = false;
+            Comentario comentario = new Comentario(data, fixado, tamanho, texto);
+            Comentarios.add(comentario);
         }
-        System.out.println("Insira comentário: ");
-        String texto = sc.nextLine();
-        int tamanho = texto.length();
-
-        Comentario comentario = new Comentario(data, fixado, tamanho, texto);
-        Comentarios.add(comentario);
+        else{
+            System.out.println("Erro: Este comentário não foi fixado devido a resposta inválida.");
+        }
 
         return true;
     }
