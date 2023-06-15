@@ -3,6 +3,9 @@ public abstract class Recurso {
     protected String url_recurso;
     protected static int prox_ID = 1;
 
+    public Recurso(){
+
+    }
     public Recurso(String url_recurso){
             this.ID = prox_ID++;
             this.url_recurso = url_recurso;

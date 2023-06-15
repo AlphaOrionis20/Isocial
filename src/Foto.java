@@ -1,5 +1,9 @@
 public class Foto extends Recurso{
     private String resolucao;
+
+    public Foto(){
+
+    }
     public Foto(String url_recurso, String resolucao) {
         super(url_recurso);
         this.resolucao = resolucao;
