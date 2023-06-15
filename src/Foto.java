@@ -1,7 +1,14 @@
 public class Foto extends Recurso{
     private String resolucao;
+
+    public Foto(){
+
+    }
     public Foto(String url_recurso, String resolucao) {
         super(url_recurso);
+        if(!this.validaUrlRecurso(url_recurso)){
+            setUrl_foto("");
+        }
         this.resolucao = resolucao;
     }
 
@@ -13,4 +20,9 @@ public class Foto extends Recurso{
     public String getResolucao() {
         return resolucao;
     }
+
+    public void setUrl_foto(String novo_Url){
+        this.url_recurso = novo_Url;
+    }
+
 }

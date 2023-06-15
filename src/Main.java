@@ -1,12 +1,20 @@
-
+import java.util.Scanner;
 public class Main
 {
     public static void main(String[] args)
     {
-        Video video1 = new Video("eunaoseitantofazalgumacoisa.jpg.mp4.mov", 30, 120);
-        System.out.println(video1.validaUrlRecurso(video1.getUrl_recurso()));
+        Scanner sc = new Scanner(System.in);
 
-        Foto foto1 = new Foto("eunaoseitantofazalgumacoisa.jpg.png", "seila");
-        System.out.println(foto1.validaUrlRecurso(foto1.getUrl_recurso()));
+        System.out.println("Deseja postar uma foto ou vídeo(foto/video)?");
+        String escolha = sc.nextLine();
+        if (escolha == "foto"){
+            System.out.println("Quantas fotos deseja postar (de 1 a 10 fotos)?");
+        }
+        else if(escolha == "video"){
+
+        }
+        else{
+            System.out.println("Opção selecionada não disponível para postagem.");
+        }
     }
 }
