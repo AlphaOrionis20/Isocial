@@ -9,6 +9,8 @@ public class PostVideo implements Postavel {
 
     private ArrayList<Comentario> Comentarios = new ArrayList();
 
+    private int qtde_fixados = 0;
+
     Scanner sc = new Scanner(System.in);
 
     public PostVideo(){
@@ -17,10 +19,12 @@ public class PostVideo implements Postavel {
     }
 
     public boolean adicionaVideo(Video _vid){
-        if(_vid.ID <= video.ID){
-            return true;
+        if(_vid.url_recurso != ""){
+        this.video = new Video(_vid.url_recurso, _vid.getFrame_rate(), _vid.getDuracao());
+        return true;
         }
         else{
+            System.out.println("Erro: Tipo de arquivo inválido.");
             return false;
         }
     }
@@ -38,22 +42,31 @@ public class PostVideo implements Postavel {
 
     @Override
     public boolean comenta() {
-        LocalDateTime data = LocalDateTime.now();
-        System.out.print("Deseja fixar comentario (sim/nao)? ");
-        String resposta = sc.nextLine();
-        boolean fixado;
-        if (resposta == "sim"){
-            fixado = true;
+        boolean adiciona = true;
+        System.out.println("Para sair da página de comentário, aperte Enter duas vez após realizar o último comentário.");
+        while(adiciona == true) {
+            LocalDateTime data = LocalDateTime.now();
+            System.out.print("Deseja fixar comentario (sim/nao)? ");
+            String resposta = sc.nextLine();
+            boolean fixado;
+            if (resposta == "sim") {
+                fixado = true;
+                qtde_fixados++;
+            } else {
+                fixado = false;
+            }
+            System.out.println("Insira comentário: ");
+            String texto = sc.nextLine();
+            int tamanho = texto.length();
+            if(tamanho>=1) {
+                Comentario comentario = new Comentario(data, fixado, tamanho, texto);
+                Comentarios.add(comentario);
+            }
+            else{
+                System.out.println("");
+                adiciona = false;
+            }
         }
-        else {
-            fixado = false;
-        }
-        System.out.println("Insira comentário: ");
-        String texto = sc.nextLine();
-        int tamanho = texto.length();
-
-        Comentario comentario = new Comentario(data, fixado, tamanho, texto);
-        Comentarios.add(comentario);
 
         return true;
     }
