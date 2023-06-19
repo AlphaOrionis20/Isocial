@@ -3,7 +3,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
+     /*Scanner sc = new Scanner(System.in);
 
         System.out.println("Deseja postar uma foto ou vídeo(foto/video)?");
         String escolha = sc.nextLine();
@@ -15,6 +15,14 @@ public class Main
         }
         else{
             System.out.println("Opção selecionada não disponível para postagem.");
-        }
+        }*/
+
+        Postavel postavel = PostavelFactory.getPostavel(true);
+
+        System.out.println(postavel);
+
+        Postavel postavel2 = PostavelFactory.getPostavel(false);
+
+        System.out.println(postavel2.posta());
     }
 }

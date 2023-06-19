@@ -70,4 +70,14 @@ public class PostVideo implements Postavel {
 
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "PostVideo{" +
+                "video=" + video +
+                ", data_postagem=" + data_postagem +
+                ", Comentarios=" + Comentarios +
+                ", qtde_fixados=" + qtde_fixados +
+                '}';
+    }
 }

@@ -75,4 +75,15 @@ public class PostFoto implements Postavel
 
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "PostFoto{" +
+                "qtd_de_fotos=" + qtd_de_fotos +
+                ", data_postagem=" + data_postagem +
+                ", Fotos=" + Fotos +
+                ", localizacao='" + localizacao + '\'' +
+                ", Comentarios=" + Comentarios +
+                '}';
+    }
 }
