@@ -22,7 +22,13 @@ public class Main
         System.out.println(postavel);
 
         Postavel postavel2 = PostavelFactory.getPostavel(false);
-
+        Video video1 = new Video("aaaaaaaaaa.mp4", 60, 5);
+        //postavel2.adicionaVideo(video1);
         System.out.println(postavel2.posta());
+        System.out.println(postavel2.type());
+
+        Postavel postavel3 = PostavelFactory.getPostavel(false);
+
+        System.out.println(postavel3);
     }
 }
