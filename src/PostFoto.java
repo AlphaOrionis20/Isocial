@@ -42,7 +42,9 @@ public class PostFoto implements Postavel
     public boolean posta() {
         if (qtd_de_fotos>=1 && qtd_de_fotos<=10) {
             data_postagem = LocalDateTime.now();
-            return true;
+            comenta();
+            toString();
+        return true;
         }
         else {
             System.out.println("Erro: É aceito apenas 1 foto e no máximo 10. Verifique seus dados.");
@@ -78,12 +80,18 @@ public class PostFoto implements Postavel
 
     @Override
     public String toString() {
-        return "PostFoto{" +
-                "qtd_de_fotos=" + qtd_de_fotos +
-                ", data_postagem=" + data_postagem +
-                ", Fotos=" + Fotos +
-                ", localizacao='" + localizacao + '\'' +
-                ", Comentarios=" + Comentarios +
-                '}';
+        return "Postagem de foto" +
+                "\n"
+                +
+                "Nome das fotos: " + Fotos +
+                "\n"
+                +
+                "Data da publicação: " + data_postagem +
+                "\n"
+                +
+                "Comentarios: " + Comentarios +
+                "\n"
+                +
+                "Localização: " + localizacao;
     }
 }

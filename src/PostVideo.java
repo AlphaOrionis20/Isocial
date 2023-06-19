@@ -28,10 +28,21 @@ public class PostVideo implements Postavel {
             return false;
         }
     }
+    public boolean fixado(String resposta){
+        if (resposta == "sim") {
+            qtde_fixados++;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     @Override
     public boolean posta() {
         if (video != null) {
             data_postagem = LocalDateTime.now();
+            comenta();
+            posta();
             return true;
         }
         else {
@@ -42,42 +53,50 @@ public class PostVideo implements Postavel {
 
     @Override
     public boolean comenta() {
-        boolean adiciona = true;
-        System.out.println("Para sair da página de comentário, aperte Enter duas vez após realizar o último comentário.");
-        while(adiciona == true) {
+        /*System.out.println("Quantos comentários deseja fazer? ");
+        int num_comentarios = sc.nextInt();
+        for(int i = 0; i< num_comentarios; i++) {
             LocalDateTime data = LocalDateTime.now();
             System.out.print("Deseja fixar comentario (sim/nao)? ");
             String resposta = sc.nextLine();
-            boolean fixado;
-            if (resposta == "sim") {
-                fixado = true;
-                qtde_fixados++;
-            } else {
-                fixado = false;
-            }
+            boolean Fixado = fixado(resposta);
             System.out.println("Insira comentário: ");
-            String texto = sc.nextLine();
+            String texto = sc.next();
             int tamanho = texto.length();
-            if(tamanho>=1) {
-                Comentario comentario = new Comentario(data, fixado, tamanho, texto);
+            if(tamanho != 0) {
+                Comentario comentario = new Comentario(data, false, tamanho, texto);
                 Comentarios.add(comentario);
             }
             else{
-                System.out.println("");
-                adiciona = false;
+                System.out.println("Comentários vazios não são adicionados.");
             }
-        }
 
-        return true;
+        }*/
+        LocalDateTime data = LocalDateTime.now();
+        System.out.println("Insira comentário: ");
+        String texto = sc.next();
+        int tamanho = texto.length();
+        Comentario comentario = new Comentario(data, false, tamanho, texto);
+        Comentarios.add(comentario);
+
+        return false;
+
     }
 
     @Override
     public String toString() {
-        return "PostVideo{" +
-                "video=" + video +
-                ", data_postagem=" + data_postagem +
-                ", Comentarios=" + Comentarios +
-                ", qtde_fixados=" + qtde_fixados +
-                '}';
+        return "Postagem de Vídeo" +
+                "\n"
+                +
+                "Nome do video: " + video.url_recurso +
+                "\n"
+                +
+                "Data da publicação: " + data_postagem +
+                "\n"
+                +
+                "Comentarios: " + Comentarios +
+                "\n"
+                +
+                "Quantidade de comentarios fixados" + qtde_fixados;
     }
 }
