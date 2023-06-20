@@ -42,7 +42,7 @@ public class PostVideo implements Postavel {
         if (video != null) {
             data_postagem = LocalDateTime.now();
             comenta();
-            posta();
+            this.toString();
             return true;
         }
         else {
@@ -53,33 +53,30 @@ public class PostVideo implements Postavel {
 
     @Override
     public boolean comenta() {
-        /*System.out.println("Quantos comentários deseja fazer? ");
+        System.out.println("Quantos comentários deseja fazer? ");
         int num_comentarios = sc.nextInt();
         for(int i = 0; i< num_comentarios; i++) {
             LocalDateTime data = LocalDateTime.now();
             System.out.print("Deseja fixar comentario (sim/nao)? ");
+            System.out.println("chega aqui nunca");
             String resposta = sc.nextLine();
+            System.out.println("chegou");
             boolean Fixado = fixado(resposta);
-            System.out.println("Insira comentário: ");
-            String texto = sc.next();
+            System.out.println("a");
+            System.out.print("Insira comentário: ");
+            System.out.println("b");
+            String texto = sc.nextLine();
             int tamanho = texto.length();
             if(tamanho != 0) {
-                Comentario comentario = new Comentario(data, false, tamanho, texto);
+                Comentario comentario = new Comentario(data, Fixado, tamanho, texto);
                 Comentarios.add(comentario);
             }
             else{
                 System.out.println("Comentários vazios não são adicionados.");
             }
 
-        }*/
-        LocalDateTime data = LocalDateTime.now();
-        System.out.println("Insira comentário: ");
-        String texto = sc.next();
-        int tamanho = texto.length();
-        Comentario comentario = new Comentario(data, false, tamanho, texto);
-        Comentarios.add(comentario);
-
-        return false;
+        }
+        return true;
 
     }
 
