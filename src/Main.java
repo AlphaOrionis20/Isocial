@@ -37,5 +37,6 @@ public class Main
         PostVideo postv = new PostVideo();
         postv.adicionaVideo(video1);
         postv.posta();
+
     }
 }

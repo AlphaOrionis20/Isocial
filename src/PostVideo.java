@@ -28,7 +28,8 @@ public class PostVideo implements Postavel {
             return false;
         }
     }
-    public boolean fixado(String resposta){
+    public boolean fixado(){
+        String resposta = sc.nextLine();
         if (resposta == "sim") {
             qtde_fixados++;
             return true;
@@ -37,12 +38,28 @@ public class PostVideo implements Postavel {
             return false;
         }
     }
+    public String getUrl_video(){
+        return this.video.url_recurso;
+    }
+    public LocalDateTime getData_postagem(){
+        return this.data_postagem;
+    }
+    public  String getComentarios(){
+        for (Comentario x:Comentarios) {
+            System.out.println(x);
+            System.out.println("");
+        }
+        return "";
+    }
+    public int getQtde_fixados(){
+        return qtde_fixados;
+    }
     @Override
     public boolean posta() {
         if (video != null) {
             data_postagem = LocalDateTime.now();
             comenta();
-            this.toString();
+            toString();
             return true;
         }
         else {
@@ -54,17 +71,14 @@ public class PostVideo implements Postavel {
     @Override
     public boolean comenta() {
         System.out.println("Quantos comentários deseja fazer? ");
-        int num_comentarios = sc.nextInt();
+        String sNum_comentarios = sc.nextLine();
+        int num_comentarios = Integer.valueOf(sNum_comentarios);
+
         for(int i = 0; i< num_comentarios; i++) {
             LocalDateTime data = LocalDateTime.now();
-            System.out.print("Deseja fixar comentario (sim/nao)? ");
-            System.out.println("chega aqui nunca");
-            String resposta = sc.nextLine();
-            System.out.println("chegou");
-            boolean Fixado = fixado(resposta);
-            System.out.println("a");
-            System.out.print("Insira comentário: ");
-            System.out.println("b");
+            System.out.println("Deseja fixar comentario (sim/nao)? ");
+            boolean Fixado = fixado();
+            System.out.print("Insira o comentário: ");
             String texto = sc.nextLine();
             int tamanho = texto.length();
             if(tamanho != 0) {
@@ -77,7 +91,6 @@ public class PostVideo implements Postavel {
 
         }
         return true;
-
     }
 
     @Override
@@ -85,15 +98,15 @@ public class PostVideo implements Postavel {
         return "Postagem de Vídeo" +
                 "\n"
                 +
-                "Nome do video: " + video.url_recurso +
+                "Nome do video: " + getUrl_video() +
                 "\n"
                 +
-                "Data da publicação: " + data_postagem +
+                "Data da publicação: " + getData_postagem() +
                 "\n"
                 +
-                "Comentarios: " + Comentarios +
+                "Comentarios: " + getComentarios() +
                 "\n"
                 +
-                "Quantidade de comentarios fixados" + qtde_fixados;
+                "Quantidade de comentarios fixados" + getQtde_fixados();
     }
 }
