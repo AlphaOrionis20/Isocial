@@ -108,5 +108,6 @@ public class PostVideo implements Postavel {
                 "\n"
                 +
                 "Quantidade de comentarios fixados" + getQtde_fixados();
+
     }
 }

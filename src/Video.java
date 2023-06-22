@@ -32,4 +32,5 @@ public class Video extends Recurso{
     public void setUrl_video(String novo_Url){
         this.url_recurso = novo_Url;
     }
+
 }
