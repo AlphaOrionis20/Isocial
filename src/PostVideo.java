@@ -1,6 +1,3 @@
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import org.w3c.dom.ls.LSOutput;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,12 +19,13 @@ public class PostVideo implements Postavel {
     }
 
     public boolean adicionaVideo(Video _vid){
-        if(_vid.url_recurso != ""){
-        this.video = new Video(_vid.url_recurso, _vid.getFrame_rate(), _vid.getDuracao());
-        return true;
+        if(_vid.url_recurso != null){
+            video = new Video(_vid.getUrl_recurso(), _vid.getFrame_rate(), _vid.getDuracao());
+            return true;
         }
         else{
-            System.out.println("Erro: Tipo de arquivo inválido.");
+            setUrlVideoErro(_vid);
+            System.out.println(getUrl_video());
             return false;
         }
     }
@@ -49,7 +47,7 @@ public class PostVideo implements Postavel {
         }
     }
     public String getUrl_video(){
-        return this.video.url_recurso;
+        return video.url_recurso;
     }
     public LocalDateTime getData_postagem(){
         return this.data_postagem;
@@ -66,12 +64,13 @@ public class PostVideo implements Postavel {
         return qtde_fixados;
     }
 
+    public void setUrlVideoErro(Video video){video.url_recurso = "Erro: Tipo de arquivo inválido.";
+    }
+
     @Override
     public boolean posta() {
         if (video != null) {
             data_postagem = LocalDateTime.now();
-            comenta();
-
             return true;
         }
         else {

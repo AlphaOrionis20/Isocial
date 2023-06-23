@@ -3,11 +3,10 @@ public class Video extends Recurso{
     private int duracao;
 
     public Video(){
-
+        setUrl_video("");
     }
     public Video(String url_recurso,int frame_rate,int duracao) {
         super(url_recurso);
-
         if (!this.validaUrlRecurso(url_recurso)){
             setUrl_video("");
         }

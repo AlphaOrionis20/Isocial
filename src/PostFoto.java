@@ -19,13 +19,14 @@ public class PostFoto implements Postavel
     }
     public boolean adicionaFoto(Foto foto)
     {
-        if (foto.url_recurso != null){
+        if (foto.url_recurso != ""){
             Fotos.add(foto);
             qtd_de_fotos++;
             return true;
         }
         else{
-            System.out.println("Erro: Tipo de arquivo inválido." + foto.url_recurso);// ajeitar o local da msg
+            setUrlFotoErro(foto);
+            Fotos.add(foto);
             return false;
         }
     }
@@ -87,6 +88,10 @@ public class PostFoto implements Postavel
         return qtde_fixados;
     }
 
+    public void setUrlFotoErro(Foto foto){
+        foto.url_recurso = "Erro: Tipo de arquivo inválido.";
+    }
+
     @Override
     public boolean posta() {
         if (qtd_de_fotos>=1 && qtd_de_fotos<=10) {
@@ -94,7 +99,6 @@ public class PostFoto implements Postavel
             System.out.print("Digite a localização das fotos: ");
             String endereço = sc.nextLine();
             setLocalizacao(endereço);
-            comenta();
         return true;
         }
         else {
