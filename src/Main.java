@@ -26,11 +26,22 @@ public class Main
         postf5.adicionaFoto(foto4);
         postf5.adicionaFoto(foto5);
         postf5.posta();
-        System.out.println(postf5);
-        System.out.println("");*/
+        System.out.println(postf5 + "\n");*/
+
+        //Teste remoção foto - Exemplo: remoção da 2a foto:
+        /*PostFoto postf4 = PostavelFactory.getPostavelFoto();
+        postf4.adicionaFoto(foto1);
+        postf4.adicionaFoto(foto2);
+        postf4.adicionaFoto(foto3);
+        postf4.adicionaFoto(foto4);
+        postf4.posta();
+        System.out.println(postf4 + "\n");
+        postf4.removeFoto(foto3);
+        postf4.posta();
+        System.out.println(postf4 + "\n");*/     
 
         //Teste para mais de 10 fotos postadas:
-        /*PostFoto postf11 = PostavelFactory.getPostavelFoto();
+        PostFoto postf11 = PostavelFactory.getPostavelFoto();
         postf11.adicionaFoto(foto1);
         postf11.adicionaFoto(foto2);
         postf11.adicionaFoto(foto3);
@@ -43,8 +54,7 @@ public class Main
         postf11.adicionaFoto(foto10);
         //postf11.adicionaFoto(foto11);
         postf11.posta();
-        System.out.println(postf11);
-        System.out.println("");*/
+        System.out.println(postf11 + "\n");
 
         //Teste sem foto:
         /*Foto fotovazio = new Foto();//Teste vazio
@@ -58,16 +68,14 @@ public class Main
         postfcomentario.adicionaFoto(foto1);
         postfcomentario.comenta();
         postfcomentario.posta();
-        System.out.println(postfcomentario);
-        System.out.println("");*/
+        System.out.println(postfcomentario + "\n");*/
 
         //Teste de video:
         /*Video video1 = new Video("videoteste.mp4", 60, 5);
         PostVideo postv = PostavelFactory.getPostavelVid();
         postv.adicionaVideo(video1);
         postv.posta();
-        System.out.println(postv);
-        System.out.println("");*/
+        System.out.println(postv + "\n");*/
 
         //Teste de video vazio:
         /*Video videovazio = new Video();
@@ -89,7 +97,6 @@ public class Main
         postvideocomentario.adicionaVideo(videocomentario);
         postvideocomentario.comenta();
         postvideocomentario.posta();
-        System.out.println(postvideocomentario);
-        System.out.println("");*/
+        System.out.println(postvideocomentario + "\n");*/
     }
 }
