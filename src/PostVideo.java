@@ -1,3 +1,6 @@
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import org.w3c.dom.ls.LSOutput;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -28,10 +31,47 @@ public class PostVideo implements Postavel {
             return false;
         }
     }
+    public boolean fixado(){
+        String resposta = sc.nextLine();
+        if (resposta.equals("sim")) {
+            System.out.println("true");
+            qtde_fixados++;
+            return true;
+        }
+        else if (resposta.equals("nao")){
+            System.out.println("false");
+            return false;
+        }
+        else{
+            System.out.println("Erro: Resposta não aceita, comentário não será fixado.");
+            resposta = "nao";
+            return false;
+        }
+    }
+    public String getUrl_video(){
+        return this.video.url_recurso;
+    }
+    public LocalDateTime getData_postagem(){
+        return this.data_postagem;
+    }
+
+    public  String getComentarios(){
+        String retorno = "";
+        for (Comentario x:Comentarios) {
+            retorno += x + "\n";
+        }
+        return retorno;
+    }
+    public int getQtde_fixados(){
+        return qtde_fixados;
+    }
+
     @Override
     public boolean posta() {
         if (video != null) {
             data_postagem = LocalDateTime.now();
+            comenta();
+
             return true;
         }
         else {
@@ -42,42 +82,49 @@ public class PostVideo implements Postavel {
 
     @Override
     public boolean comenta() {
-        boolean adiciona = true;
-        System.out.println("Para sair da página de comentário, aperte Enter duas vez após realizar o último comentário.");
-        while(adiciona == true) {
+        System.out.println("Quantos comentários deseja fazer? ");
+        String sNum_comentarios = sc.nextLine();
+        int num_comentarios = Integer.valueOf(sNum_comentarios);
+
+        for(int i = 0; i< num_comentarios; i++) {
             LocalDateTime data = LocalDateTime.now();
-            System.out.print("Deseja fixar comentario (sim/nao)? ");
-            String resposta = sc.nextLine();
-            boolean fixado;
-            if (resposta == "sim") {
-                fixado = true;
-                qtde_fixados++;
-            } else {
-                fixado = false;
-            }
-            System.out.println("Insira comentário: ");
+            System.out.println("Deseja fixar comentario (sim/nao)? ");
+            boolean Fixado = fixado();
+            System.out.print("Insira o comentário: ");
             String texto = sc.nextLine();
             int tamanho = texto.length();
-            if(tamanho>=1) {
-                Comentario comentario = new Comentario(data, fixado, tamanho, texto);
-                Comentarios.add(comentario);
+            if(tamanho != 0) {
+                if(Fixado == true) {
+                    Comentario comentario = new Comentario(data, Fixado, tamanho, texto);
+                    Comentarios.add(0,comentario);
+                }
+                else{
+                    Comentario comentario = new Comentario(data, Fixado, tamanho, texto);
+                    Comentarios.add(comentario);
+                }
             }
             else{
-                System.out.println("");
-                adiciona = false;
+                System.out.println("Comentários vazios não são adicionados.");
             }
-        }
 
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "PostVideo{" +
-                "video=" + video +
-                ", data_postagem=" + data_postagem +
-                ", Comentarios=" + Comentarios +
-                ", qtde_fixados=" + qtde_fixados +
-                '}';
+        return "Postagem de Vídeo" +
+                "\n"
+                +
+                "Nome do video: " + getUrl_video() +
+                "\n"
+                +
+                "Data da publicação: " + getData_postagem() +
+                "\n"
+                +
+                "Comentarios: "+ "\n" + getComentarios()
+                +
+                "Quantidade de comentarios fixados: " + getQtde_fixados();
+
     }
 }

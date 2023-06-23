@@ -12,4 +12,9 @@ public class Comentario {
         this.tamanho = Tamanho;
         this.texto = Texto;
     }
+
+    @Override
+    public String toString() {
+        return texto;
+    }
 }

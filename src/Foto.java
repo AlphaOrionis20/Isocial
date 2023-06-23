@@ -2,6 +2,7 @@ public class Foto extends Recurso{
     private String resolucao;
 
     public Foto(){
+        url_recurso = null;
 
     }
     public Foto(String url_recurso, String resolucao) {
@@ -25,4 +26,8 @@ public class Foto extends Recurso{
         this.url_recurso = novo_Url;
     }
 
+    @Override
+    public String toString() {
+        return url_recurso;
+    }
 }
