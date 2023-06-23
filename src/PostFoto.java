@@ -99,9 +99,10 @@ public class PostFoto implements Postavel
             System.out.print("Digite a localização das fotos: ");
             String endereço = sc.nextLine();
             setLocalizacao(endereço);
-        return true;
+            return true;
         }
         else {
+            System.out.println("Erro: Nenhuma foto está associada à postagem");
             return false;
         }
     }

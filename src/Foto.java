@@ -2,7 +2,7 @@ public class Foto extends Recurso{
     private String resolucao;
 
     public Foto(){
-        url_recurso = null;
+        url_recurso = "";
 
     }
     public Foto(String url_recurso, String resolucao) {

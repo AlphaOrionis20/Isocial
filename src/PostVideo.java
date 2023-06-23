@@ -19,25 +19,22 @@ public class PostVideo implements Postavel {
     }
 
     public boolean adicionaVideo(Video _vid){
-        if(_vid.url_recurso != null){
-            video = new Video(_vid.getUrl_recurso(), _vid.getFrame_rate(), _vid.getDuracao());
+        if(_vid.url_recurso == ""){
+            video = new Video();
             return true;
         }
-        else{
-            setUrlVideoErro(_vid);
-            System.out.println(getUrl_video());
-            return false;
+        else {
+            this.video = new Video(_vid.getUrl_recurso(), _vid.getFrame_rate(), _vid.getDuracao());
+            return true;
         }
     }
     public boolean fixado(){
         String resposta = sc.nextLine();
         if (resposta.equals("sim")) {
-            System.out.println("true");
             qtde_fixados++;
             return true;
         }
         else if (resposta.equals("nao")){
-            System.out.println("false");
             return false;
         }
         else{
@@ -64,17 +61,22 @@ public class PostVideo implements Postavel {
         return qtde_fixados;
     }
 
-    public void setUrlVideoErro(Video video){video.url_recurso = "Erro: Tipo de arquivo inválido.";
+    public void setUrlVideo(String string){
+        video.url_recurso = string;
     }
 
     @Override
     public boolean posta() {
-        if (video != null) {
+        if (video.url_recurso != "" && video.url_recurso != "Erro: Tipo de arquivo inválido.") {
             data_postagem = LocalDateTime.now();
             return true;
         }
-        else {
+        else if (video.url_recurso == ""){
             System.out.println("Erro: Nenhum vídeo está associado à postagem.");
+            return false;
+        }
+        else{
+            System.out.println(getUrl_video());
             return false;
         }
     }

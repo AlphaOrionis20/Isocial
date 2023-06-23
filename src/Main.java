@@ -5,38 +5,6 @@ public class Main
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        /*System.out.println("Deseja postar uma foto ou vídeo(foto/video)?");
-        String escolha = sc.nextLine();
-        if (escolha == "foto"){
-            System.out.println("Quantas fotos deseja postar (de 1 a 10 fotos)?");
-        }
-        else if(escolha == "video"){
-
-        }
-        else{
-            System.out.println("Opção selecionada não disponível para postagem.");
-        }*/
-        /*System.out.println("Deseja postar uma foto ou video (Postfoto para foto e Postvideo para video)? ");
-        String postagem = sc.next();
-        Postavel postavel = PostavelFactory.getPostavel(true);
-
-        System.out.println(postavel);
-
-        Postavel postavel2 = PostavelFactory.getPostavel("POSTVIDEO");
-        Video video1 = new Video("aaaaaaaaaa.mp4", 60, 5);
-        postavel2.;
-        System.out.println(postavel2.posta());n
-        PostVideo a = null;
-        a.adicionaVideo(video1);
-
-
-        Postavel postavel3 = PostavelFactory.getPostavel(false);
-
-        System.out.println(postavel3);*/
-
-
-
-
 
         Foto foto1 = new Foto("alo.png","1440");//Teste de png.
         Foto foto2 = new Foto("alo2.bpm","1430");//Teste de bpm.
@@ -59,10 +27,10 @@ public class Main
         postf5.adicionaFoto(foto5);
         postf5.posta();
         System.out.println(postf5);
-        System.out.println("");
+        System.out.println("");*/
 
         //Teste para mais de 10 fotos postadas:
-        PostFoto postf11 = PostavelFactory.getPostavelFoto();
+        /*PostFoto postf11 = PostavelFactory.getPostavelFoto();
         postf11.adicionaFoto(foto1);
         postf11.adicionaFoto(foto2);
         postf11.adicionaFoto(foto3);
@@ -76,18 +44,17 @@ public class Main
         //postf11.adicionaFoto(foto11);
         postf11.posta();
         System.out.println(postf11);
-        System.out.println("");
+        System.out.println("");*/
 
         //Teste sem foto:
-        Foto foto = new Foto();//Teste vazio
-        PostFoto postfi = PostavelFactory.getPostavelFoto();
-        postfi.adicionaFoto(foto);
-        //postfi.posta();
-        //System.out.println(postfi);
-        //System.out.println("");
+        /*Foto fotovazio = new Foto();//Teste vazio
+        PostFoto postfvazio = PostavelFactory.getPostavelFoto();
+        postfvazio.adicionaFoto(fotovazio);
+        postfvazio.posta();
+        System.out.println("");*/
 
         //Teste com comentario para foto:
-        PostFoto postfcomentario = PostavelFactory.getPostavelFoto();
+        /*PostFoto postfcomentario = PostavelFactory.getPostavelFoto();
         postfcomentario.adicionaFoto(foto1);
         postfcomentario.comenta();
         postfcomentario.posta();
@@ -103,12 +70,26 @@ public class Main
         System.out.println("");*/
 
         //Teste de video vazio:
-        Video videovazio = new Video();
+        /*Video videovazio = new Video();
         PostVideo postvazio = PostavelFactory.getPostavelVid();
         postvazio.adicionaVideo(videovazio);
         postvazio.posta();
-        System.out.println(postvazio);
-        System.out.println("");
+        System.out.println("");*/
 
+        //Teste de video invalido:
+        /*Video videoinvalido = new Video("alo",60,60);
+        PostVideo postinvalido = PostavelFactory.getPostavelVid();
+        postinvalido.adicionaVideo(videoinvalido);
+        postinvalido.posta();
+        System.out.println("");*/
+
+        //Teste de video com comentario:
+        /*Video videocomentario = new Video("videoteste.mp4", 60, 5);
+        PostVideo postvideocomentario = PostavelFactory.getPostavelVid();
+        postvideocomentario.adicionaVideo(videocomentario);
+        postvideocomentario.comenta();
+        postvideocomentario.posta();
+        System.out.println(postvideocomentario);
+        System.out.println("");*/
     }
 }

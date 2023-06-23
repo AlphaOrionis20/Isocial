@@ -8,7 +8,7 @@ public class Video extends Recurso{
     public Video(String url_recurso,int frame_rate,int duracao) {
         super(url_recurso);
         if (!this.validaUrlRecurso(url_recurso)){
-            setUrl_video("");
+            setUrl_video("Erro: Tipo de arquivo inválido.");
         }
         this.duracao = duracao;
         this.frame_rate = frame_rate;
