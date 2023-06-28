@@ -144,7 +144,7 @@ public class PostFoto implements Postavel
             return  "Postagem de foto" +
                     "\n"
                     +
-                    "Nome das fotos: " + getUrl_foto()
+                    "Nome das fotos: "+ "\n" + getUrl_foto()
                     +
                     "Data da publicação: " + getData_postagem() +
                     "\n"

@@ -5,12 +5,20 @@ public class PostavelFactory {
 
     }
 
-    public static PostVideo getPostavelVid() {
-        return  new PostVideo();
+    public static PostFoto getPostavelFoto(String postavel) {
+        if(postavel == "POSTFOTO") {
+            return new PostFoto();
+        }
+        else{
+            throw new IllegalArgumentException("Erro: Tipo de postagem inválida para foto.");
+        }
     }
-    public static PostFoto getPostavelFoto() {
-        return  new PostFoto();
+    public static PostVideo getPostavelVid(String postavel) {
+        if(postavel == "POSTVIDEO") {
+            return new PostVideo();
+        }
+        else{
+            throw new IllegalArgumentException("Erro: Tipo de postagem inválida para vídeo.");
+        }
     }
-
-    
 }
