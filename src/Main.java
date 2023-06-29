@@ -8,15 +8,15 @@ public class Main
 
         //Teste criação de postagem com texto para vídeo:
         try{
-            PostVideo postTexto1 = PostavelFactory.getPostavelVid("POSTTEXTO");
+            PostVideo postTexto1 = (PostVideo) PostavelFactory.getPostavel("POSTTEXTO");
         }
-        catch(IllegalArgumentException e){
+        catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
         }
 
         //Teste criação de postagem com texto para foto:
         try{
-            PostFoto postTexto2 = PostavelFactory.getPostavelFoto("POSTTEXTO");
+            PostFoto postTexto2 = (PostFoto) PostavelFactory.getPostavel("POSTTEXTO");
         }
         catch(IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -36,7 +36,7 @@ public class Main
         Foto foto11 = new Foto("alo11.png","1420");
 
         //Teste para 5 fotos postadas:
-        /*PostFoto postf5 = PostavelFactory.getPostavelFoto("POSTFOTO");
+        /*PostFoto postf5 = (PostFoto) PostavelFactory.getPostavel("POSTFOTO");
         postf5.adicionaFoto(foto1);
         postf5.adicionaFoto(foto2);
         postf5.adicionaFoto(foto3);
@@ -46,7 +46,7 @@ public class Main
         System.out.println(postf5 + "\n");*/
 
         //Teste remoção foto - Exemplo: remoção da 2a foto:
-        /*PostFoto postf4 = PostavelFactory.getPostavelFoto("POSTFOTO");
+        /*PostFoto postf4 = (PostFoto) PostavelFactory.getPostavel("POSTFOTO");
         postf4.adicionaFoto(foto1);
         postf4.adicionaFoto(foto2);
         postf4.adicionaFoto(foto3);
@@ -58,7 +58,7 @@ public class Main
         System.out.println(postf4 + "\n");*/     
 
         //Teste para mais de 10 fotos postadas (sendo a foto6 com arquivo inválido):
-        /*PostFoto postf11 = PostavelFactory.getPostavelFoto("POSTFOTO");
+        /*PostFoto postf11 = (PostFoto) PostavelFactory.getPostavel("POSTFOTO");
         postf11.adicionaFoto(foto1);
         postf11.adicionaFoto(foto2);
         postf11.adicionaFoto(foto3);
@@ -75,13 +75,13 @@ public class Main
 
         //Teste sem foto:
         /*Foto fotovazio = new Foto();//Teste vazio
-        PostFoto postfvazio = PostavelFactory.getPostavelFoto("POSTFOTO");
+        PostFoto postfvazio = (PostFoto) PostavelFactory.getPostavel("POSTFOTO");
         postfvazio.adicionaFoto(fotovazio);
         postfvazio.posta();
         System.out.println("");*/
 
         //Teste com comentario para foto:
-        /*PostFoto postfcomentario = PostavelFactory.getPostavelFoto("POSTFOTO");
+        /*PostFoto postfcomentario = (PostFoto) PostavelFactory.getPostavel("POSTFOTO");
         postfcomentario.adicionaFoto(foto1);
         postfcomentario.comenta();
         postfcomentario.posta();
@@ -89,28 +89,28 @@ public class Main
 
         //Teste de video:
         /*Video video1 = new Video("videoteste.mp4", 60, 5);
-        PostVideo postv = PostavelFactory.getPostavelVid("POSTVIDEO");
+        PostVideo postv = (PostVideo) PostavelFactory.getPostavel("POSTVIDEO");
         postv.adicionaVideo(video1);
         postv.posta();
         System.out.println(postv + "\n");*/
 
         //Teste de video vazio:
         /*Video videovazio = new Video();
-        PostVideo postvazio = PostavelFactory.getPostavelVid("POSTVIDEO");
+        PostVideo postvazio = (PostVideo) PostavelFactory.getPostavel("POSTVIDEO");
         postvazio.adicionaVideo(videovazio);
         postvazio.posta();
         System.out.println("");*/
 
         //Teste de video invalido:
         /*Video videoinvalido = new Video("alo",60,60);
-        PostVideo postinvalido = PostavelFactory.getPostavelVid("POSTVIDEO");
+        PostVideo postinvalido = (PostVideo) PostavelFactory.getPostavel("POSTVIDEO");
         postinvalido.adicionaVideo(videoinvalido);
         postinvalido.posta();
         System.out.println("");*/
 
         //Teste de video com comentario:
         /*Video videocomentario = new Video("videoteste.mp4", 60, 5);
-        PostVideo postvideocomentario = PostavelFactory.getPostavelVid("POSTVIDEO");
+        PostVideo postvideocomentario = (PostVideo) PostavelFactory.getPostavel("POSTVIDEO");
         postvideocomentario.adicionaVideo(videocomentario);
         postvideocomentario.comenta();
         postvideocomentario.posta();

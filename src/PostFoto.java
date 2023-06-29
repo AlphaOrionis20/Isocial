@@ -72,6 +72,7 @@ public class PostFoto implements Postavel
         }
         return retorno;
     }
+
     public LocalDateTime getData_postagem(){
         return this.data_postagem;
     }

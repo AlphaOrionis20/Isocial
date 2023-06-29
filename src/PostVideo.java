@@ -28,6 +28,7 @@ public class PostVideo implements Postavel {
             return true;
         }
     }
+
     public boolean fixado(){
         String resposta = sc.nextLine();
         if (resposta.equals("sim")) {
@@ -43,6 +44,7 @@ public class PostVideo implements Postavel {
             return false;
         }
     }
+
     public String getUrl_video(){
         return video.url_recurso;
     }
@@ -57,6 +59,7 @@ public class PostVideo implements Postavel {
         }
         return retorno;
     }
+
     public int getQtde_fixados(){
         return qtde_fixados;
     }

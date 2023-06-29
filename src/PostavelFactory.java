@@ -4,17 +4,11 @@ public class PostavelFactory {
     private PostavelFactory(){
 
     }
-
-    public static PostFoto getPostavelFoto(String postavel) {
+    public static Postavel getPostavel(String postavel) {
         if(postavel == "POSTFOTO") {
             return new PostFoto();
         }
-        else{
-            throw new IllegalArgumentException("Erro: Tipo de postagem inválida para foto.");
-        }
-    }
-    public static PostVideo getPostavelVid(String postavel) {
-        if(postavel == "POSTVIDEO") {
+        else if(postavel == "POSTVIDEO"){
             return new PostVideo();
         }
         else{
@@ -22,3 +16,4 @@ public class PostavelFactory {
         }
     }
 }
+
